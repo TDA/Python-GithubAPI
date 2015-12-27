@@ -12,9 +12,10 @@ data_store = 'my_repo_data.json'
 
 # get repos of any user
 username = 'tda'
-r = requests.get("https://api.github.com/users/" + username + "/repos", auth=('tda', password))
+# this needs to be changed once u get past 100 repos :)
+r = requests.get("https://api.github.com/users/" + username + "/repos?page=1&per_page=100", auth=('tda', password))
 
 print r.status_code
 print r.text
 
-pretty_print_json(r.text)
+pretty_print_json(r.text, data_store)
