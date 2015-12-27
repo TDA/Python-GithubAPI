@@ -2,6 +2,7 @@ __author__ = 'saipc'
 
 import requests
 from pretty_print_json import pretty_print_json
+from passfile import password
 
 data_store = 'my_repo_data.json'
 # enter password here
@@ -11,7 +12,7 @@ data_store = 'my_repo_data.json'
 
 # get repos of any user
 username = 'tda'
-r = requests.get("https://api.github.com/users/" + username + "/repos", auth=('tda', ''))
+r = requests.get("https://api.github.com/users/" + username + "/repos", auth=('tda', password))
 
 print r.status_code
 print r.text
